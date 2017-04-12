@@ -1,8 +1,7 @@
 #!/data/data/com.termux/files/usr/bin/python
 
 from time import localtime, strftime
-
-path = 'dati.dat'
+from os.path import expanduser, join
 
 def leggiTipo():
     t = input('tipo (+/-) [-]: ')
@@ -54,8 +53,11 @@ def scriviMovimento(path, m):
     return
 
 print("money 0.0.1")
-print('file output:', path)
+home = expanduser('~')
+out_file_name = 'movimenti.dat'
+out_file = join(home, 'dati', out_file_name)
+print('file output:', out_file)
 m = leggiMovimento()
-scriviMovimento(path, m)
+scriviMovimento(out_file, m)
 print('scritto:', m)
 print('grazie.')
