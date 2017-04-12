@@ -4,13 +4,12 @@ dati = []
 stato = 0
 with open('dati.quif','r') as f:
     for l in f:
-        if stato == 0 and '!Type:Cash' in l:
+        if stato == 0 and l.startswith('D'):
             stato = 1
             tr = {
-                    'head' : l
+                'head' : l
             }
             dati.append(tr)
-        elif stato == 1 and l.startswith('D'):
             dati[-1]['data'] = l
         elif stato == 1 and l.startswith('M'):
             dati[-1]['descrizione'] = l
