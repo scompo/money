@@ -2,6 +2,7 @@
 
 from time import localtime, strftime
 from os.path import expanduser, join
+from pprint import pprint
 
 def leggi_tipo():
     t = input('tipo (+/-) [-]: ')
@@ -58,12 +59,18 @@ def scrivi_movimento(path, m):
         f.write('\n')
     return
 
+def file_output():
+    home = expanduser('~')
+    out_file_name = 'movimenti.dat'
+    out_file = join(home, 'dati', out_file_name)
+    return out_file
+
 print("money 0.0.1")
-home = expanduser('~')
-out_file_name = 'movimenti.dat'
-out_file = join(home, 'dati', out_file_name)
+out_file = file_output()
 print('file output:', out_file)
 m = leggi_movimento()
 scrivi_movimento(out_file, m)
-print('scritto:', m)
+print('scritto:')
+pprint(m)
 print('grazie.')
+
