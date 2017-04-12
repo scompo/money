@@ -37,7 +37,13 @@ def leggiMovimento():
     data = leggiData()
     ora = leggiOra()
     descrizione = leggiDescrizione()
-    m = {"tipo":tipo, "valore":valore, "data":data,"ora":ora, "descrizione":descrizione}
+    m = {
+        'tipo' : tipo,
+        'valore' : valore,
+        'data' : data,
+        'ora' : ora,
+        'descrizione': descrizione
+    }
     return m
 
 def scriviMovimento(path, m):
