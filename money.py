@@ -3,40 +3,40 @@
 from time import localtime, strftime
 from os.path import expanduser, join
 
-def leggiTipo():
+def leggi_tipo():
     t = input('tipo (+/-) [-]: ')
     if t == '':
         t='-'
     return t
 
-def leggiValore():
+def leggi_valore():
     v = ''
     while v == '':
         v = input('valore (#####.##) []: ')
     return v
 
-def leggiData():
+def leggi_data():
     d = input('data (DD/MM/YYYY) [oggi]: ')
     if d == '':
         d = strftime("%d/%m/%Y", localtime())
     return d
 
-def leggiOra():
+def leggi_ora():
     o = input('ora (HH:MM) [adesso]: ')
     if o == '':
         o = strftime('%H:%M', localtime())
     return o
 
-def leggiDescrizione():
+def leggi_descrizione():
     d = input('descrizione () []: ')
     return d
 
-def leggiMovimento():
-    tipo = leggiTipo()
-    valore = leggiValore()
-    data = leggiData()
-    ora = leggiOra()
-    descrizione = leggiDescrizione()
+def leggi_movimento():
+    tipo = leggi_tipo()
+    valore = leggi_valore()
+    data = leggi_data()
+    ora = leggi_ora()
+    descrizione = leggi_descrizione()
     m = {
         'tipo' : tipo,
         'valore' : valore,
@@ -46,7 +46,7 @@ def leggiMovimento():
     }
     return m
 
-def scriviMovimento(path, m):
+def scrivi_movimento(path, m):
     with open(path, 'a') as f:
         f.write(m['tipo'] + m['valore'])
         f.write(';')
@@ -63,7 +63,7 @@ home = expanduser('~')
 out_file_name = 'movimenti.dat'
 out_file = join(home, 'dati', out_file_name)
 print('file output:', out_file)
-m = leggiMovimento()
-scriviMovimento(out_file, m)
+m = leggi_movimento()
+scrivi_movimento(out_file, m)
 print('scritto:', m)
 print('grazie.')
