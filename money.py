@@ -5,9 +5,13 @@ from os.path import expanduser, join
 from pprint import pprint
 
 def leggi_tipo():
-    t = input('tipo (+/-) [-]: ')
+    t = 'n'
+    while not (t == '' or t == '+' or t == '-'):
+        t = input('tipo (+/-) [-]: ')
     if t == '':
         t='-'
+    elif t == '+':
+        t=''
     return t
 
 def leggi_valore():
