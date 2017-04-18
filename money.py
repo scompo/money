@@ -1,5 +1,3 @@
-#!/data/data/com.termux/files/usr/bin/python
-
 from time import localtime, strftime
 from os.path import expanduser, join
 from pprint import pprint
